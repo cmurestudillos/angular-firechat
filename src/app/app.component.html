@@ -1,0 +1,6 @@
+<div class="main-container">
+  <app-login *ngIf="!_chats.usuario.id"></app-login>
+  <div class="chat-window" *ngIf="_chats.usuario.id">
+    <app-chat></app-chat>
+  </div>
+</div>

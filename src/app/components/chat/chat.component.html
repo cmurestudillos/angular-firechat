@@ -1,0 +1,21 @@
+<div class="menu">
+  <div class="back" *ngIf="_chat.usuario.id">
+    <div class="name">
+      Firechat
+      <i>Versión: {{ appVersion }}</i>
+    </div>
+    <div class="logout"><button mat-raised-button color="basic" (click)="_chat.logout()">Salir</button></div>
+  </div>
+</div>
+
+<ol class="chat">
+  <li [ngClass]="{'other': _chat.usuario.id == chat.id, 'self': _chat.usuario.id != chat.id}" *ngFor="let chat of _chat.chats">
+    <div class="avatar"><img [src]="chat.foto" [alt]="chat.nombre" draggable="false" /></div>
+    <div class="msg">
+      <p><strong>{{ chat.nombre }}</strong></p>
+      <p>{{ chat.mensaje }}</p>
+      ⏲️<span>{{ chat.fecha | date: 'shortTime' }}</span>
+    </div>
+  </li>
+</ol>
+<input class="textarea" type="text" name="mensaje" [(ngModel)]="mensaje" (keyup.enter)="enviarMensaje()" placeholder="Enviar mensaje..." />

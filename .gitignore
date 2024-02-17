@@ -1,0 +1,40 @@
+# Dependency directories
+/node_modules
+
+# Build output
+/dist
+
+# Environment variables
+.env
+
+# IDE files
+.idea
+.vscode
+
+# Logs
+/logs
+
+# Compiled JavaScript
+*.js
+
+# Compiled CSS
+*.css
+
+# Compiled TypeScript
+*.ts.js
+
+# Compiled SASS
+*.scss.css
+
+# Compiled HTML
+*.html.js
+
+# Compiled Angular templates
+*.ngfactory.ts
+*.ngstyle.ts
+.angular/
+
+# Miscellaneous
+.DS_Store
+Thumbs.db
+.vercel

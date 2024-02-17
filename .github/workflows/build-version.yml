@@ -1,0 +1,25 @@
+name: CD / CI - Integración Continua / Despliegue Continuo
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-version:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Obtener versión actual
+        id: get_version
+        run: echo "::set-output name=version::$(npm run version --silent)"
+
+      - name: Subir versión del package.json
+        run: |
+          npm --no-git-tag-version version "${{ steps.get_version.outputs.version }}"
+          git add package.json
+          git commit -m "Subir versión a ${{ steps.get_version.outputs.version }}"
+          git push
+
