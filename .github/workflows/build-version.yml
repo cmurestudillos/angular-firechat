@@ -3,7 +3,7 @@ name: CD / CI - Integración Continua / Despliegue Continuo
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   build-version:
